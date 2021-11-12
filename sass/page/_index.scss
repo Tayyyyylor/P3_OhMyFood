@@ -1,0 +1,241 @@
+@use "../utils/_mixin.scss";
+@use "../utils/_variables.scss";
+@use "../utils/_animation.scss";
+
+.loading {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // animation: loader 3s linear;
+}
+
+.load {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.load-spin {
+  border-radius: 50px;
+  border: 3px solid transparent;
+  border-top-color: $purple;
+  // animation: spin 2s linear ;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    border-radius: 50px;
+    border: 3px solid transparent;
+    border-top-color: $sky;
+    opacity: 0.8;
+    // animation: spin 5s linear infinite;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    bottom: 12px;
+    right: 12px;
+    border-radius: 50px;
+    border: 3px solid transparent;
+    border-top-color: $pink;
+    opacity: 0.9;
+    // animation: spin 10s linear infinite;
+  }
+}
+
+.container-map > aside > a {
+  @include flexbox-column;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 2rem;
+  border-radius: 1.5rem;
+  @include box-shadow-dark;
+}
+
+.container-flex {
+  @include flexbox-column;
+  box-shadow: inset 0px 1px 6px 0px $normalgrey;
+  align-content: center;
+  background-color: $greyf1;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-flex--posi {
+  padding: 1rem;
+  font-size: 20px;
+}
+
+.container-flex__resume {
+  @include flexbox-column;
+  align-content: center;
+  justify-content: center;
+  padding: 0 1rem 2rem 2rem;
+  align-items: center;
+  background-color: #fafafa;
+  text-align: center;
+
+  button {
+    @include btn-gradient;
+    transform: scale(1);
+    transition: all 1000ms;
+    opacity: 1;
+
+    &:hover {
+      background-color: #fff;
+      transform: scale(1.15);
+      opacity: 0.7;
+    }
+  }
+}
+
+aside {
+  h2 {
+    @include margin-side-left;
+  }
+
+  ul {
+    list-style: none;
+    @include flexbox-column;
+    padding: 0 1.5rem;
+
+    li {
+      background-color: $greyf2;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      padding: 1.4rem 0;
+      @include box-shadow-dark;
+
+      &:hover {
+        background-color: #8f859b;
+      }
+    }
+  }
+}
+
+.flex-fonc {
+  @include flexbox-row;
+  align-items: center;
+  margin-left: 40px;
+
+  p {
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
+  i {
+    color: $normalgrey;
+
+    &:hover {
+      cursor: pointer;
+      color: $purple;
+    }
+  }
+}
+
+.numerotation {
+  margin: 0;
+  position: absolute;
+  left: -0.2rem;
+  z-index: 1;
+  background-color: $purple;
+  color: $white;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.container-section {
+  @include back-color-grey;
+
+  h2 {
+    margin-left: 20px;
+    padding: 1rem;
+  }
+}
+.container-resto {
+  gap: 2.5rem;
+  @include flexbox-column;
+  padding: 0 1.5rem;
+  align-content: center;
+  justify-content: center;
+  padding-bottom: 3rem;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  a {
+    @include cards;
+    @include box-shadow-dark;
+    @media (min-width: 1024px) {
+      min-width: 35%;
+    }
+  }
+}
+
+.container-resto__offre {
+  position: relative;
+  border-radius: 1rem;
+
+  span {
+    background-color: $sky;
+    color: $turquoise;
+    padding: 0.5rem;
+    border-radius: 0.125rem;
+    position: absolute;
+    top: 1rem;
+    right: 0.75rem;
+  }
+
+  img {
+    object-fit: cover;
+    object-position: center;
+    border-radius: 1rem 1rem 0 0;
+    width: 100%;
+    height: 10rem;
+    min-width: 40%;
+  }
+
+  i {
+    @include hearth;
+    color: grey;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0.2rem 0 0.5rem 1rem;
+  }
+
+  p {
+    margin: 0;
+    padding: 0.2rem 0 0.5rem 1rem;
+  }
+}
+
+.heart {
+  input {
+    visibility: hidden;
+  }
+  input[type="checkbox"]:checked ~ i {
+    font-weight: 900;
+    background: linear-gradient(45deg, $pink 0%, $purple 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: heartanim 1.5s;
+  }
+}

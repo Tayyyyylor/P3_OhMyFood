@@ -1,0 +1,23 @@
+@use "../utils/_mixin.scss";
+@use "../utils/_variables.scss";
+
+.container-logo {
+  @include flexbox-column;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+
+  a {
+    padding: 0.2rem;
+  }
+
+  img {
+    padding: 1rem 1rem 0.5rem 1rem;
+  }
+
+  i {
+    position: absolute;
+    bottom: 1.6rem;
+    margin-left: 10px;
+  }
+}
