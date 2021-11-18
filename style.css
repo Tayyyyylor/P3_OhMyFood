@@ -67,7 +67,9 @@ footer a {
 @-webkit-keyframes loader {
   0% {
     opacity: 1;
-    z-index: 1002;
+  }
+  50% {
+    opacity: 0.5;
   }
   100% {
     opacity: 0;
@@ -78,36 +80,12 @@ footer a {
 @keyframes loader {
   0% {
     opacity: 1;
-    z-index: 1002;
-  }
-  100% {
-    opacity: 0;
-    z-index: -1;
-  }
-}
-@-webkit-keyframes loader2 {
-  0% {
-    opacity: 0;
-    z-index: 1001;
   }
   50% {
     opacity: 0.5;
   }
   100% {
-    opacity: 1;
-    z-index: -1;
-  }
-}
-@keyframes loader2 {
-  0% {
     opacity: 0;
-    z-index: 1001;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
     z-index: -1;
   }
 }
@@ -185,9 +163,14 @@ footer a {
     transform: scale(1);
   }
 }
-html {
-  -webkit-animation: loader2 3s both;
-          animation: loader2 3s both;
+.loading-container {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  -webkit-animation: loader 3s both;
+          animation: loader 3s both;
 }
 
 .loading {
@@ -422,7 +405,7 @@ aside ul li:hover {
 .container-resto__offre i {
   position: absolute;
   font-size: 25px;
-  right: 2rem;
+  right: 1.2rem;
   bottom: 2rem;
   color: grey;
 }
@@ -540,7 +523,7 @@ ul li section:hover .check-pic {
 ul li section span {
   margin-top: 27px;
   font-weight: 600;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 ul li section .delay1 {
   -webkit-animation-delay: 0.5s;
@@ -555,7 +538,7 @@ ul li section .delay3 {
           animation-delay: 1.5s;
 }
 ul li section .dimension-heading {
-  padding: 0.4rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   flex: 1;
   text-overflow: ellipsis;
   white-space: nowrap;
