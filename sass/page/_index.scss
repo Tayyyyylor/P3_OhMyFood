@@ -2,28 +2,31 @@
 @use "../utils/_variables.scss";
 @use "../utils/_animation.scss";
 
+html {
+  animation: loader2 3s both;
+}
+
 .loading {
-  height: 100%;
-  width: 100%;
   position: absolute;
   opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // animation: loader 3s linear;
+  z-index: 1002;
+  animation: loader 6s both;
+  left: 9rem;
+  top: 20rem;
+  background-color: $greyf2;
 }
 
 .load {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   display: inline-block;
 }
 
 .load-spin {
   border-radius: 50px;
-  border: 3px solid transparent;
+  border: 5px solid transparent;
   border-top-color: $purple;
-  // animation: spin 2s linear ;
+  animation: spin 2s linear infinite;
 
   &:after {
     content: "";
@@ -33,10 +36,9 @@
     bottom: 5px;
     right: 5px;
     border-radius: 50px;
-    border: 3px solid transparent;
+    border: 5px solid transparent;
     border-top-color: $sky;
-    opacity: 0.8;
-    // animation: spin 5s linear infinite;
+    animation: spin 4s linear infinite;
   }
   &:before {
     content: "";
@@ -46,10 +48,9 @@
     bottom: 12px;
     right: 12px;
     border-radius: 50px;
-    border: 3px solid transparent;
+    border: 5px solid transparent;
     border-top-color: $pink;
-    opacity: 0.9;
-    // animation: spin 10s linear infinite;
+    animation: spin 6s linear infinite;
   }
 }
 
@@ -87,6 +88,10 @@
   background-color: #fafafa;
   text-align: center;
 
+  h2 {
+    margin-bottom: 0;
+  }
+
   button {
     @include btn-gradient;
     transform: scale(1);
@@ -115,7 +120,7 @@ aside {
       background-color: $greyf2;
       border-radius: 20px;
       margin-bottom: 20px;
-      padding: 1.4rem 0;
+      padding: 0.5rem 0;
       @include box-shadow-dark;
 
       &:hover {
@@ -218,12 +223,12 @@ aside {
 
   h3 {
     margin: 0;
-    padding: 0.2rem 0 0.5rem 1rem;
+    padding: 0.2rem 0 0 1rem;
   }
 
   p {
     margin: 0;
-    padding: 0.2rem 0 0.5rem 1rem;
+    padding: 0.2rem 0 0 1rem;
   }
 }
 

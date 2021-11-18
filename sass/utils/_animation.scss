@@ -1,10 +1,25 @@
 @keyframes loader {
     0% {
         opacity: 1;
-        background-color: #f2F2F2;
+        z-index: 1002;
     }
     100% {
         opacity: 0;
+        z-index: -1;
+    }
+}
+
+@keyframes loader2 {
+    0% {
+        opacity: 0;
+        z-index: 1001;
+    }
+50%{
+    opacity: 0.5;
+}
+    100% {
+        opacity: 1;
+        z-index: -1;
     }
 }
 
@@ -14,10 +29,8 @@
         opacity: 1;
     }
 
-
     100% {
         transform: rotate(360deg);
-        z-index: -1;
     }
 }
 
@@ -44,18 +57,11 @@
     }
 }
 
-@keyframes slide {
+@keyframes appear {
     0% {
+        transform: scale(0);
     }
     100% {
+        transform: scale(1);
     }
-}
-
-@keyframes appear {
-0% {
-transform: scale(0);
-}
-100%{
-transform: scale(1);
-}
 }

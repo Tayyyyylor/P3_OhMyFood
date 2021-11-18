@@ -67,20 +67,48 @@ footer a {
 @-webkit-keyframes loader {
   0% {
     opacity: 1;
-    background-color: #f2F2F2;
+    z-index: 1002;
   }
   100% {
     opacity: 0;
+    z-index: -1;
   }
 }
 
 @keyframes loader {
   0% {
     opacity: 1;
-    background-color: #f2F2F2;
+    z-index: 1002;
   }
   100% {
     opacity: 0;
+    z-index: -1;
+  }
+}
+@-webkit-keyframes loader2 {
+  0% {
+    opacity: 0;
+    z-index: 1001;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    z-index: -1;
+  }
+}
+@keyframes loader2 {
+  0% {
+    opacity: 0;
+    z-index: 1001;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    z-index: -1;
   }
 }
 @-webkit-keyframes spin {
@@ -90,7 +118,6 @@ footer a {
   }
   100% {
     transform: rotate(360deg);
-    z-index: -1;
   }
 }
 @keyframes spin {
@@ -100,7 +127,6 @@ footer a {
   }
   100% {
     transform: rotate(360deg);
-    z-index: -1;
   }
 }
 @-webkit-keyframes cards {
@@ -143,8 +169,6 @@ footer a {
     opacity: 1;
   }
 }
-@-webkit-keyframes slide {}
-@keyframes slide {}
 @-webkit-keyframes appear {
   0% {
     transform: scale(0);
@@ -161,26 +185,34 @@ footer a {
     transform: scale(1);
   }
 }
+html {
+  -webkit-animation: loader2 3s both;
+          animation: loader2 3s both;
+}
+
 .loading {
-  height: 100%;
-  width: 100%;
   position: absolute;
   opacity: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1002;
+  -webkit-animation: loader 6s both;
+          animation: loader 6s both;
+  left: 9rem;
+  top: 20rem;
+  background-color: #f2f2f2;
 }
 
 .load {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   display: inline-block;
 }
 
 .load-spin {
   border-radius: 50px;
-  border: 3px solid transparent;
+  border: 5px solid transparent;
   border-top-color: #9356dc;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
 }
 .load-spin:after {
   content: "";
@@ -190,9 +222,10 @@ footer a {
   bottom: 5px;
   right: 5px;
   border-radius: 50px;
-  border: 3px solid transparent;
+  border: 5px solid transparent;
   border-top-color: #99e2d0;
-  opacity: 0.8;
+  -webkit-animation: spin 4s linear infinite;
+          animation: spin 4s linear infinite;
 }
 .load-spin:before {
   content: "";
@@ -202,9 +235,10 @@ footer a {
   bottom: 12px;
   right: 12px;
   border-radius: 50px;
-  border: 3px solid transparent;
+  border: 5px solid transparent;
   border-top-color: #ff79da;
-  opacity: 0.9;
+  -webkit-animation: spin 6s linear infinite;
+          animation: spin 6s linear infinite;
 }
 
 .container-map > aside > a {
@@ -247,6 +281,9 @@ footer a {
   background-color: #fafafa;
   text-align: center;
 }
+.container-flex__resume h2 {
+  margin-bottom: 0;
+}
 .container-flex__resume button {
   border: 0;
   padding: 0.75rem 1.5rem;
@@ -280,7 +317,7 @@ aside ul li {
   background-color: #f2f2f2;
   border-radius: 20px;
   margin-bottom: 20px;
-  padding: 1.4rem 0;
+  padding: 0.5rem 0;
   box-shadow: 0px 10px 20px 0 #686868;
 }
 aside ul li:hover {
@@ -385,17 +422,17 @@ aside ul li:hover {
 .container-resto__offre i {
   position: absolute;
   font-size: 25px;
-  right: 1rem;
-  bottom: 1rem;
+  right: 2rem;
+  bottom: 2rem;
   color: grey;
 }
 .container-resto__offre h3 {
   margin: 0;
-  padding: 0.2rem 0 0.5rem 1rem;
+  padding: 0.2rem 0 0 1rem;
 }
 .container-resto__offre p {
   margin: 0;
-  padding: 0.2rem 0 0.5rem 1rem;
+  padding: 0.2rem 0 0 1rem;
 }
 
 .heart input {
@@ -421,6 +458,9 @@ aside ul li:hover {
 }
 
 /******************************************************/
+main {
+  position: relative;
+}
 main.menu {
   background-color: #f2f2f2;
 }
@@ -440,10 +480,6 @@ main h3.souligne:after {
   margin-top: 5px;
 }
 
-.container-bandeau {
-  position: relative;
-}
-
 .bandeau {
   display: flex;
   flex-direction: row;
@@ -457,12 +493,7 @@ main h3.souligne:after {
   z-index: 1;
   border-radius: 40px;
   position: absolute;
-  bottom: 76rem;
-}
-@media (min-width: 1024px) {
-  .bandeau {
-    bottom: 77rem;
-  }
+  bottom: 63rem;
 }
 .bandeau h2 {
   font-family: "Shrikhand", cursive;
@@ -485,16 +516,13 @@ ul {
 }
 ul li {
   margin-bottom: 20px;
-  padding: 0 0.2rem;
   width: 100%;
   border-radius: 15px;
   background-color: white;
   border: none;
   box-shadow: 0px 5px 20px 0px grey;
-  -webkit-animation: appear 0.5s;
-          animation: appear 0.5s;
-  -webkit-animation: cards 1.5s both;
-          animation: cards 1.5s both;
+  -webkit-animation: appear 0.6s;
+          animation: appear 0.6s;
 }
 ul li section {
   display: flex;
@@ -506,75 +534,84 @@ ul li section {
 ul li section:hover .slide {
   margin-right: -0.1rem;
 }
-ul li h4 {
+ul li section:hover .check-pic {
+  transform: rotate(0);
+}
+ul li section span {
+  margin-top: 27px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+ul li section .delay1 {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+ul li section .delay2 {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+ul li section .delay3 {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+ul li section .dimension-heading {
+  padding: 0.4rem;
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+ul li section .dimension-title {
   margin: 0;
   text-align: initial;
   margin-bottom: 0.3rem;
   font-weight: bolder;
   font-size: medium;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-ul li p {
+ul li section .dimension-text {
   margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-ul li span {
-  margin-top: 27px;
-}
-
-.delay1 {
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
-.delay2 {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-.delay3 {
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-
-.dimension-heading {
-  padding: 0.4rem;
-  flex: 1;
-}
-
-.placement-heading {
+ul li section .placement-heading {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
 }
-.placement-heading span {
+ul li section .placement-heading span {
   font-weight: bolder;
 }
-.placement-heading i {
+ul li section .placement-heading i {
   color: white;
 }
-
-.placement-price {
+ul li section .placement-price {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   padding-left: 0.5 rem;
 }
-
-.slide {
+ul li section .slide {
   background-color: #99e2d0;
   height: 4rem;
   width: 4rem;
-  border-radius: 0px 15px 15px 0;
+  border-radius: 0px 20px 20px 0;
   display: flex;
   align-items: center;
   margin: -1rem -5rem -1rem 1rem;
   justify-content: center;
   transition-duration: 0.5s;
 }
-
-.check-pic {
+ul li section .check-pic {
   color: white;
+  font-size: 20px;
+  transform: rotate(180deg);
+  transition-duration: 0.8s;
 }
 
 .btn-template {

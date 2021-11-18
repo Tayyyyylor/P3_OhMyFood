@@ -13,6 +13,7 @@
 /******************************************************/
 
 main {
+  position: relative;
   &.menu {
     background-color: $greyf2;
   }
@@ -36,10 +37,6 @@ main {
   }
 }
 
-.container-bandeau {
-  position: relative;
-}
-
 .bandeau {
   @include flexbox-row;
   @include back-color-grey;
@@ -50,10 +47,7 @@ main {
   z-index: 1;
   border-radius: 40px;
   position: absolute;
-  bottom: 76rem;
-  @media (min-width: 1024px) {
-    bottom: 77rem;
-  }
+  bottom: 63rem;
 
   h2 {
     font-family: "Shrikhand", cursive;
@@ -76,11 +70,9 @@ ul {
 
   li {
     margin-bottom: 20px;
-    padding: 0 0.2rem;
     @include choice-template;
     @include box-shadow-light;
-    animation: appear 0.5s;
-    animation: cards 1.5s both;
+    animation: appear 0.6s;
 
     section {
       display: flex;
@@ -91,74 +83,93 @@ ul {
       &:hover .slide {
         margin-right: -0.1rem;
       }
-    }
+      &:hover .check-pic {
+        transform: rotate(0);
+      }
 
-    h4 {
-      margin: 0;
-      text-align: initial;
-      margin-bottom: 0.3rem;
-      font-weight: bolder;
-      font-size: medium;
-    }
-    p {
-      margin: 0;
-    }
-    span {
-      margin-top: 27px;
+      span {
+        margin-top: 27px;
+        font-weight: 600;
+        margin-right: 10px;
+      }
+
+      .delay1 {
+        animation-delay: 0.5s;
+      }
+      .delay2 {
+        animation-delay: 1s;
+      }
+      .delay3 {
+        animation-delay: 1.5s;
+      }
+
+      .dimension-heading {
+        padding: 0.4rem;
+        flex: 1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      .dimension-title {
+        margin: 0;
+        text-align: initial;
+        margin-bottom: 0.3rem;
+        font-weight: bolder;
+        font-size: medium;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .dimension-text {
+        margin: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .placement-heading {
+        @include flexbox-row;
+        justify-content: space-between;
+        align-items: center;
+
+        span {
+          font-weight: bolder;
+        }
+
+        i {
+          color: white;
+        }
+      }
+
+      .placement-price {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-left: 0.5 rem;
+      }
+
+      .slide {
+        background-color: $sky;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 0px 20px 20px 0;
+        display: flex;
+        align-items: center;
+        margin: -1rem -5rem -1rem 1rem;
+        justify-content: center;
+        transition-duration: 0.5s;
+      }
+
+      .check-pic {
+        color: white;
+        font-size: 20px;
+        transform: rotate(180deg);
+        transition-duration: 0.8s;
+      }
     }
   }
-}
-.delay1 {
-  animation-delay: 0.5s;
-}
-.delay2 {
-  animation-delay: 1s;
-}
-.delay3 {
-  animation-delay: 1.5s;
-}
-
-.dimension-heading {
-  padding: 0.4rem;
-
-  flex: 1;
-}
-
-.placement-heading {
-  @include flexbox-row;
-  justify-content: space-between;
-  align-items: center;
-
-  span {
-    font-weight: bolder;
-  }
-
-  i {
-    color: white;
-  }
-}
-
-.placement-price {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-left: 0.5 rem;
-}
-
-.slide {
-  background-color: $sky;
-  height: 4rem;
-  width: 4rem;
-  border-radius: 0px 15px 15px 0;
-  display: flex;
-  align-items: center;
-  margin: -1rem -5rem -1rem 1rem;
-  justify-content: center;
-  transition-duration: 0.5s;
-}
-
-.check-pic {
-  color: white;
 }
 
 .btn-template {
