@@ -176,9 +176,8 @@ footer a {
 .loading {
   position: absolute;
   opacity: 1;
-  z-index: 1002;
-  -webkit-animation: loader 6s both;
-          animation: loader 6s both;
+  -webkit-animation: loader 3s both;
+          animation: loader 3s both;
   left: 9rem;
   top: 20rem;
   background-color: #f2f2f2;
@@ -366,7 +365,10 @@ aside ul li:hover {
     flex-wrap: wrap;
   }
 }
-.container-resto a {
+
+.container-resto__offre {
+  position: relative;
+  border-radius: 1rem;
   overflow: hidden;
   min-width: 40%;
   border-radius: 1rem;
@@ -374,14 +376,9 @@ aside ul li:hover {
   box-shadow: 0px 10px 20px 0 #686868;
 }
 @media (min-width: 1024px) {
-  .container-resto a {
+  .container-resto__offre {
     min-width: 35%;
   }
-}
-
-.container-resto__offre {
-  position: relative;
-  border-radius: 1rem;
 }
 .container-resto__offre span {
   background-color: #99e2d0;
@@ -452,7 +449,7 @@ main img {
 }
 main h3 {
   margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 70px;
 }
 main h3.souligne:after {
   content: " ";
@@ -476,11 +473,10 @@ main h3.souligne:after {
   z-index: 1;
   border-radius: 40px;
   position: absolute;
-  bottom: 63rem;
+  bottom: 72rem;
 }
 .bandeau h2 {
   font-family: "Shrikhand", cursive;
-  margin-right: 130px;
 }
 .bandeau i {
   font-size: 2rem;

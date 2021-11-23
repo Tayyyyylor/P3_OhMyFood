@@ -24,7 +24,7 @@ main {
 
   h3 {
     @include margin-side-left;
-    margin-top: 30px;
+    margin-top: 70px;
 
     &.souligne:after {
       content: " ";
@@ -47,11 +47,11 @@ main {
   z-index: 1;
   border-radius: 40px;
   position: absolute;
-  bottom: 63rem;
+  bottom: 72rem;
 
   h2 {
     font-family: "Shrikhand", cursive;
-    margin-right: 130px;
+    
   }
 
   i {
