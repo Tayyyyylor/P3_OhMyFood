@@ -490,14 +490,22 @@ main h3.souligne:after {
   width: 100%;
   z-index: 1;
   border-radius: 40px;
-  position: absolute;
-  bottom: 72rem;
 }
 .bandeau h2 {
   font-family: "Shrikhand", cursive;
 }
 .bandeau i {
   font-size: 2rem;
+}
+
+.size1 {
+  position: absolute;
+  bottom: 72rem;
+}
+
+.size2 {
+  position: absolute;
+  bottom: 76rem;
 }
 
 ul {
